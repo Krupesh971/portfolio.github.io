@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Krupesh Prajapati — Quality Engineer</title>
+<meta name="description" content="Quality engineer working in manufacturing quality, process improvement and Lean Six Sigma. M.S. Industrial &amp; Engineering Management, Western New England University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ───────────────────────────────────────────────
+   TOKENS
+   Palette: zinc shop-floor grey, petrol steel ink,
+   one hi-vis safety orange, cool drawing-line blue.
+   ─────────────────────────────────────────────── */
+:root{
+  --bg:#E7EBEC;
+  --surface:#F3F6F7;
+  --surface-2:#DDE3E5;
+  --deep:#0A2229;
+  --deep-2:#103039;
+  --ink:#0F252C;
+  --ink-2:#4C666E;
+  --ink-3:#7E959C;
+  --rule:#C3CCD0;
+  --accent:#E85D04;
+  --accent-soft:rgba(232,93,4,.12);
+  --line:#5E8B99;
+  --on-deep:#E9F1F3;
+  --on-deep-2:#9FBBC3;
+  --deep-rule:rgba(158,190,199,.28);
+
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+
+  --shell:1140px;
+  --pad:clamp(20px,5vw,48px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#06161B;
+    --surface:#0C2029;
+    --surface-2:#112C35;
+    --deep:#040F13;
+    --deep-2:#0A2029;
+    --ink:#E3EBED;
+    --ink-2:#9BB1B8;
+    --ink-3:#6E888F;
+    --rule:#1D3A44;
+    --accent:#FF7A22;
+    --accent-soft:rgba(255,122,34,.14);
+    --line:#4A7886;
+    --on-deep:#E9F1F3;
+    --on-deep-2:#94B2BA;
+    --deep-rule:rgba(140,175,185,.24);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#06161B; --surface:#0C2029; --surface-2:#112C35; --deep:#040F13; --deep-2:#0A2029;
+  --ink:#E3EBED; --ink-2:#9BB1B8; --ink-3:#6E888F; --rule:#1D3A44;
+  --accent:#FF7A22; --accent-soft:rgba(255,122,34,.14); --line:#4A7886;
+  --on-deep:#E9F1F3; --on-deep-2:#94B2BA; --deep-rule:rgba(140,175,185,.24);
+}
+
+*,*::before,*::after{box-sizing:inherit}
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth;
+      scroll-padding-top:calc(66px + env(safe-area-inset-top,0px)); }
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:16.5px; line-height:1.62; font-feature-settings:"tnum" 1,"cv05" 1;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+h1,h2,h3{font-family:Archivo,"IBM Plex Sans",sans-serif;font-weight:700;letter-spacing:-.025em;margin:0}
+p{margin:0}
+
+.shell{max-width:var(--shell);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* ─── NAV ─── */
+.nav{
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:60;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-in{display:flex;align-items:center;gap:20px;height:66px}
+.mark{display:flex;align-items:center;gap:10px;font-family:Archivo;font-weight:700;letter-spacing:-.02em;text-decoration:none;font-size:15px}
+.mark .glyph{
+  width:26px;height:26px;display:grid;place-items:center;flex:none;
+  border:1.5px solid var(--accent);color:var(--accent);font-size:13px;line-height:1;
+}
+.nav-links{margin-left:auto;display:flex;gap:26px}
+.nav-links a{
+  text-decoration:none;font-size:14.5px;color:var(--ink-2);position:relative;padding:4px 0;
+  transition:color .2s ease;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.2,.7,.3,1);
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{transform:scaleX(1)}
+@media (max-width:820px){.nav-links{display:none}}
+
+/* ─── HERO ─── */
+.hero{
+  position:relative;background:var(--deep);color:var(--on-deep);overflow:hidden;
+  padding:clamp(56px,9vw,104px) 0 clamp(52px,7vw,84px);
+}
+.hero::before{ /* drawing paper grid */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--deep-rule) 1px,transparent 1px),
+    linear-gradient(90deg,var(--deep-rule) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(120% 90% at 78% 18%,#000 0%,transparent 72%);
+          mask-image:radial-gradient(120% 90% at 78% 18%,#000 0%,transparent 72%);
+  opacity:.5;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(90% 70% at 88% 10%,rgba(232,93,4,.16),transparent 60%);
+}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(36px,6vw,76px);align-items:center}
+@media (max-width:920px){
+  .hero-in{grid-template-columns:1fr;gap:56px}
+  .hero-copy{order:2}
+  .portrait-wrap{order:1;max-width:340px}
+}
+
+.stamp{
+  display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:.06em;
+  color:var(--on-deep-2);border:1px solid var(--deep-rule);padding:6px 12px;margin-bottom:26px;
+}
+.stamp i{width:6px;height:6px;background:var(--accent);display:block;border-radius:50%;font-style:normal;
+  box-shadow:0 0 0 0 rgba(232,93,4,.6);animation:ping 2.6s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(232,93,4,.5)}70%{box-shadow:0 0 0 9px rgba(232,93,4,0)}100%{box-shadow:0 0 0 0 rgba(232,93,4,0)}}
+
+h1.name{font-size:clamp(2.7rem,6.6vw,4.5rem);line-height:.93;letter-spacing:-.035em}
+h1.name .second{display:block;color:var(--on-deep-2)}
+.role{
+  margin-top:22px;font-size:clamp(1.02rem,1.9vw,1.2rem);color:var(--on-deep);
+  font-weight:500;max-width:30ch;
+}
+.role b{color:var(--accent);font-weight:600}
+.lede{margin-top:16px;color:var(--on-deep-2);max-width:46ch;font-size:15.5px}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:14.5px;font-weight:500;
+  padding:12px 20px;border:1px solid var(--deep-rule);color:var(--on-deep);
+  transition:background .22s ease,border-color .22s ease,transform .22s ease;
+}
+.btn:hover{background:rgba(255,255,255,.06);transform:translateY(-2px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:#cf5303;border-color:#cf5303}
+
+/* ─── PORTRAIT + DIMENSIONING ─── */
+.portrait-wrap{position:relative;margin:0 auto;width:100%;max-width:420px;padding:44px 52px 44px 0}
+.frame{position:relative}
+.portrait{
+  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;
+  background:var(--deep-2);
+  clip-path:inset(0 0 100% 0);
+}
+.frame::after{ /* thin inner keyline */
+  content:"";position:absolute;inset:0;border:1px solid var(--deep-rule);pointer-events:none;
+}
+.corner{position:absolute;width:16px;height:16px;border:2px solid var(--accent);opacity:0;transition:opacity .4s ease}
+.corner.tl{top:-6px;left:-6px;border-right:0;border-bottom:0}
+.corner.tr{top:-6px;right:-6px;border-left:0;border-bottom:0}
+.corner.bl{bottom:-6px;left:-6px;border-right:0;border-top:0}
+.corner.br{bottom:-6px;right:-6px;border-left:0;border-top:0}
+
+/* horizontal dimension above photo */
+.dim-h{position:absolute;top:18px;left:0;right:52px;height:1px;background:var(--line);
+  transform:scaleX(0);transform-origin:left}
+.dim-h::before,.dim-h::after{
+  content:"";position:absolute;top:-3.5px;width:0;height:0;
+  border-top:4px solid transparent;border-bottom:4px solid transparent;
+}
+.dim-h::before{left:0;border-right:7px solid var(--line)}
+.dim-h::after{right:0;border-left:7px solid var(--line)}
+.dim-h .tag{
+  position:absolute;left:50%;top:-11px;transform:translateX(-50%);
+  background:var(--deep);padding:0 9px;font-size:11.5px;letter-spacing:.05em;color:var(--on-deep-2);white-space:nowrap;
+}
+/* vertical dimension right of photo */
+.dim-v{position:absolute;right:26px;top:44px;bottom:44px;width:1px;background:var(--line);
+  transform:scaleY(0);transform-origin:top}
+.dim-v::before,.dim-v::after{
+  content:"";position:absolute;left:-3.5px;width:0;height:0;
+  border-left:4px solid transparent;border-right:4px solid transparent;
+}
+.dim-v::before{top:0;border-bottom:7px solid var(--line)}
+.dim-v::after{bottom:0;border-top:7px solid var(--line)}
+.dim-v .tag{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(90deg);
+  background:var(--deep);padding:0 9px;font-size:11.5px;letter-spacing:.05em;color:var(--on-deep-2);white-space:nowrap;
+}
+/* extension lines */
+.ext{position:absolute;background:var(--deep-rule)}
+.ext.e1{left:0;top:18px;width:1px;height:26px}
+.ext.e2{right:52px;top:18px;width:1px;height:26px}
+.ext.e3{right:26px;top:44px;height:1px;width:26px}
+.ext.e4{right:26px;bottom:44px;height:1px;width:26px}
+
+/* GD&T feature control frame over photo */
+.fcf{
+  position:absolute;left:-10px;bottom:24px;display:flex;background:var(--deep);
+  border:1px solid var(--accent);font-size:12px;letter-spacing:.04em;
+  opacity:0;transform:translateY(8px);
+}
+.fcf span{padding:6px 11px;border-right:1px solid var(--accent);color:var(--on-deep)}
+.fcf span:last-child{border-right:0}
+.fcf span.sym{color:var(--accent);font-weight:600}
+@media (max-width:920px){.portrait-wrap{padding-right:46px}}
+
+/* ─── LOAD CHOREOGRAPHY ─── */
+.rise{opacity:0;transform:translateY(16px)}
+body.ready .rise{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+body.ready .d1{transition-delay:.05s} body.ready .d2{transition-delay:.15s}
+body.ready .d3{transition-delay:.25s} body.ready .d4{transition-delay:.35s}
+body.ready .portrait{clip-path:inset(0 0 0 0);transition:clip-path 1s cubic-bezier(.65,0,.2,1) .2s}
+body.ready .dim-h{transform:scaleX(1);transition:transform .8s cubic-bezier(.2,.7,.3,1) .9s}
+body.ready .dim-v{transform:scaleY(1);transition:transform .8s cubic-bezier(.2,.7,.3,1) 1.05s}
+body.ready .corner{opacity:1;transition:opacity .5s ease 1.15s}
+body.ready .fcf{opacity:1;transform:none;transition:opacity .5s ease 1.3s,transform .5s ease 1.3s}
+
+/* ─── READOUT STRIP ─── */
+.readout{background:var(--deep-2);color:var(--on-deep);border-top:1px solid var(--deep-rule)}
+.readout-in{display:grid;grid-template-columns:repeat(4,1fr)}
+.cell{padding:26px var(--pad);border-right:1px solid var(--deep-rule)}
+.cell:last-child{border-right:0}
+.cell .val{font-family:Archivo;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700;letter-spacing:-.03em;line-height:1}
+.cell .val em{font-style:normal;color:var(--accent)}
+.cell .lab{margin-top:8px;font-size:12.5px;color:var(--on-deep-2);line-height:1.4}
+@media (max-width:760px){
+  .readout-in{grid-template-columns:1fr 1fr}
+  .cell{border-bottom:1px solid var(--deep-rule)}
+  .cell:nth-child(2){border-right:0}
+  .cell:nth-child(3),.cell:nth-child(4){border-bottom:0}
+}
+
+/* ─── SECTIONS ─── */
+section{padding:clamp(60px,8vw,104px) 0}
+.sec-head{display:flex;align-items:baseline;gap:20px;margin-bottom:clamp(30px,4vw,46px)}
+.sec-head h2{font-size:clamp(1.55rem,3.2vw,2.15rem);white-space:nowrap}
+.ruler{flex:1;height:14px;position:relative;overflow:hidden}
+.ruler::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--rule);
+}
+.ruler::after{
+  content:"";position:absolute;left:0;right:0;top:0;height:7px;
+  background-image:linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:12px 7px;
+}
+.ruler{transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.2,.7,.3,1)}
+.in .ruler{transform:scaleX(1)}
+.sec-head .idx{font-size:12.5px;color:var(--ink-3);letter-spacing:.08em;flex:none}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+.in .reveal{opacity:1;transform:none}
+.in .reveal:nth-child(2){transition-delay:.06s}
+.in .reveal:nth-child(3){transition-delay:.12s}
+.in .reveal:nth-child(4){transition-delay:.18s}
+
+/* profile */
+.profile-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width:880px){.profile-grid{grid-template-columns:1fr}}
+.profile-grid p{font-size:17px;color:var(--ink-2);max-width:66ch}
+.profile-grid p + p{margin-top:18px}
+.profile-grid strong{color:var(--ink);font-weight:600}
+.aside{border-left:2px solid var(--accent);padding:4px 0 4px 20px}
+.aside dt{font-size:12.5px;color:var(--ink-3);letter-spacing:.05em}
+.aside dd{margin:2px 0 18px;font-size:15.5px;font-weight:500}
+.aside dd:last-child{margin-bottom:0}
+.aside a{color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px}
+
+/* capability */
+.caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.cap{background:var(--surface);padding:26px 24px 28px}
+.cap h3{font-size:1.02rem;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.cap h3 .sym{color:var(--accent);font-weight:600;font-size:.95em}
+.cap .note{font-size:12.5px;color:var(--ink-3);margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{
+  font-size:13px;padding:5px 10px;border:1px solid var(--rule);color:var(--ink-2);background:var(--bg);
+  transition:border-color .2s ease,color .2s ease,background .2s ease;
+}
+.cap:hover .chip{border-color:color-mix(in srgb,var(--accent) 40%,var(--rule))}
+.chip:hover{color:var(--ink);border-color:var(--accent);background:var(--accent-soft)}
+
+/* experience — dimension rail */
+.rail{position:relative;padding-left:clamp(28px,5vw,62px)}
+.rail::before{
+  content:"";position:absolute;left:8px;top:14px;bottom:14px;width:1px;background:var(--line);
+}
+.rail::after{
+  content:"";position:absolute;left:4.5px;top:6px;width:0;height:0;
+  border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:8px solid var(--line);
+}
+.job{position:relative;padding-bottom:clamp(38px,5vw,56px)}
+.job:last-child{padding-bottom:0}
+.job::before{ /* tick */
+  content:"";position:absolute;left:calc(-1 * clamp(28px,5vw,62px) + 1px);top:12px;width:15px;height:1px;background:var(--line);
+}
+.job::after{ /* node */
+  content:"";position:absolute;left:calc(-1 * clamp(28px,5vw,62px) + 5px);top:8px;width:9px;height:9px;
+  background:var(--bg);border:2px solid var(--accent);border-radius:50%;
+}
+.job-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.job h3{font-size:1.18rem}
+.job .co{color:var(--accent);font-weight:600;font-size:1rem}
+.job .meta{margin-left:auto;font-size:13px;color:var(--ink-3);white-space:nowrap}
+.job ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:11px;max-width:74ch}
+.job li{position:relative;padding-left:22px;color:var(--ink-2);font-size:15.5px}
+.job li::before{
+  content:"";position:absolute;left:0;top:.62em;width:9px;height:1px;background:var(--line);
+}
+.job li b{color:var(--ink);font-weight:600}
+
+/* projects */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media (max-width:820px){.projects{grid-template-columns:1fr}}
+.proj{background:var(--surface);padding:30px 28px 32px;position:relative;overflow:hidden}
+.proj::before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.3,1);
+}
+.proj:hover::before{transform:scaleX(1)}
+.proj .when{font-size:12.5px;color:var(--ink-3)}
+.proj h3{font-size:1.1rem;margin:8px 0 4px}
+.proj .where{font-size:13.5px;color:var(--accent);font-weight:500}
+.proj ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:10px}
+.proj li{position:relative;padding-left:20px;font-size:15px;color:var(--ink-2)}
+.proj li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--line)}
+
+/* education + certs */
+.edu-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(28px,5vw,56px);align-items:start}
+@media (max-width:880px){.edu-grid{grid-template-columns:1fr}}
+.deg{border-top:1px solid var(--rule);padding:22px 0}
+.deg:last-of-type{border-bottom:1px solid var(--rule)}
+.deg-top{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.deg h3{font-size:1.08rem}
+.deg .gpa{
+  margin-left:auto;font-size:13px;color:var(--ink);border:1px solid var(--accent);padding:2px 9px;white-space:nowrap;
+}
+.deg .sub{font-size:14.5px;color:var(--accent);font-weight:500;width:100%}
+.deg .course{margin-top:12px;font-size:14px;color:var(--ink-2)}
+.deg .course span{color:var(--ink-3)}
+.certs{background:var(--surface);border:1px solid var(--rule);padding:24px}
+.certs h3{font-size:1rem;margin-bottom:14px}
+.certs ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.certs li{display:flex;gap:11px;font-size:14.5px;color:var(--ink-2);align-items:flex-start}
+.certs li::before{content:"✓";color:var(--accent);font-size:13px;line-height:1.5}
+
+/* contact */
+.contact{background:var(--deep);color:var(--on-deep);position:relative;overflow:hidden}
+.contact::before{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(var(--deep-rule) 1px,transparent 1px),linear-gradient(90deg,var(--deep-rule) 1px,transparent 1px);
+  background-size:56px 56px;opacity:.45;
+  -webkit-mask-image:radial-gradient(90% 100% at 12% 100%,#000,transparent 70%);
+          mask-image:radial-gradient(90% 100% at 12% 100%,#000,transparent 70%);
+}
+.contact .shell{position:relative;z-index:2}
+.contact h2{font-size:clamp(1.8rem,4.4vw,2.9rem);max-width:18ch;line-height:1.04}
+.contact p{margin-top:18px;color:var(--on-deep-2);max-width:48ch}
+.contact-rows{margin-top:38px;border-top:1px solid var(--deep-rule)}
+.crow{
+  display:flex;align-items:center;gap:18px;padding:18px 0;border-bottom:1px solid var(--deep-rule);
+  text-decoration:none;transition:padding-left .3s cubic-bezier(.2,.7,.3,1),color .2s ease;
+}
+.crow:hover{padding-left:12px}
+.crow .k{font-size:12.5px;color:var(--on-deep-2);width:92px;flex:none;letter-spacing:.05em}
+.crow .v{font-size:clamp(.98rem,2.2vw,1.18rem);font-weight:500}
+.crow .arrow{margin-left:auto;color:var(--accent);opacity:0;transform:translateX(-6px);transition:all .25s ease}
+.crow:hover .arrow{opacity:1;transform:none}
+
+footer{background:var(--deep);color:var(--on-deep-2);border-top:1px solid var(--deep-rule);font-size:13px}
+.foot-in{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;padding:22px 0}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rise,.reveal{opacity:1;transform:none}
+  .portrait{clip-path:none}
+  .dim-h,.dim-v,.ruler{transform:none}
+  .corner,.fcf{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="shell nav-in">
+    <a class="mark" href="#top"><span class="glyph">⌖</span> Krupesh Prajapati</a>
+    <div class="nav-links">
+      <a href="#profile">Profile</a>
+      <a href="#capability">Capability</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="shell hero-in">
+
+    <div class="hero-copy">
+      <span class="stamp rise d1"><i></i> Open to quality engineer roles · May 2026</span>
+      <h1 class="name rise d1">Krupesh<span class="second">Prajapati</span></h1>
+      <p class="role rise d2">Quality engineer for <b>manufacturing lines</b> — inspection, root cause, and the paperwork that holds an audit together.</p>
+      <p class="lede rise d3">Three plants, three continents of standards: ISO 9001, IATF 16949 and VDA. I find where the written process and the shop floor disagree, then close the gap.</p>
+      <div class="cta-row rise d4">
+        <a class="btn primary" href="mailto:krupeshprajapati971@gmail.com">Email Krupesh</a>
+        <a class="btn" href="https://www.linkedin.com/in/krupesh16" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PHOTO GOES HERE.
+         Replace the src below with either:
+           src="krupesh.jpg"                       (file beside this HTML)
+           src="data:image/jpeg;base64,/9j/4AAQ…"  (fully self-contained)
+         Portrait crop works best (4:5). Nothing else needs changing.
+         ============================================================ -->
+    <div class="portrait-wrap">
+      <span class="ext e1"></span><span class="ext e2"></span>
+      <span class="ext e3"></span><span class="ext e4"></span>
+      <div class="dim-h"><span class="tag">M.S. Industrial &amp; Engineering Mgmt</span></div>
+      <div class="dim-v"><span class="tag">GPA 3.97 / 4.00</span></div>
+
+      <div class="frame">
+        <img class="portrait" id="portrait" alt="Portrait of Krupesh Prajapati"
+             src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23103039'/%3E%3Cg stroke='%235E8B99' stroke-width='1' opacity='.45'%3E%3Cpath d='M0 62.5h400M0 125h400M0 187.5h400M0 250h400M0 312.5h400M0 375h400M0 437.5h400M50 0v500M100 0v500M150 0v500M200 0v500M250 0v500M300 0v500M350 0v500'/%3E%3C/g%3E%3Ccircle cx='200' cy='205' r='58' fill='none' stroke='%239FBBC3' stroke-width='2'/%3E%3Cpath d='M112 355c0-48 39-80 88-80s88 32 88 80v40H112z' fill='none' stroke='%239FBBC3' stroke-width='2'/%3E%3Cg fill='%239FBBC3' font-family='Helvetica,Arial,sans-serif' font-size='15' text-anchor='middle'%3E%3Ctext x='200' y='452'%3EAdd photo: swap the img src%3C/text%3E%3C/g%3E%3C/svg%3E">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+      </div>
+
+      <div class="fcf">
+        <span class="sym">⌖</span><span>Quality Engineer</span><span>Springfield, MA</span>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<div class="readout">
+  <div class="shell" style="padding:0">
+    <div class="readout-in">
+      <div class="cell"><div class="val">100<em>+</em></div><div class="lab">QC documents reviewed and standardized to ISO 9001 / IATF 16949</div></div>
+      <div class="cell"><div class="val">6.9<em>%</em></div><div class="lab">Production efficiency gained from a lean line improvement</div></div>
+      <div class="cell"><div class="val">3<em>.97</em></div><div class="lab">Graduate GPA, Industrial &amp; Engineering Management</div></div>
+      <div class="cell"><div class="val">3</div><div class="lab">Manufacturing sites worked across, US and India</div></div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<section id="profile" class="obs">
+  <div class="shell">
+    <div class="sec-head"><h2>Profile</h2><div class="ruler"></div><span class="idx">Rev. 2026</span></div>
+    <div class="profile-grid">
+      <div class="reveal">
+        <p>I work where the drawing meets the machine. Most of my time has been spent on battery lines, CNC cells and metal fabrication floors — checking parts against <strong>GD&amp;T callouts</strong>, tracing defects back to their real cause, and writing the corrective action so it holds the second time.</p>
+        <p>My toolkit is the ordinary one done properly: <strong>FMEA, SPC, CAPA, 8D, 5 Why and fishbone</strong>, backed by Minitab, Power BI, SQL and Excel when the answer is hiding in the data. I like the part of quality work that most people skip — reconciling what the SOP says with what the operator actually does at 6am.</p>
+      </div>
+      <dl class="aside reveal">
+        <dt>Based in</dt><dd>Springfield, Massachusetts</dd>
+        <dt>Graduating</dt><dd>May 2026</dd>
+        <dt>Focus</dt><dd>Manufacturing quality, process improvement, QMS &amp; audits</dd>
+        <dt>Reach me</dt><dd><a href="mailto:krupeshprajapati971@gmail.com">krupeshprajapati971@gmail.com</a><br><a href="tel:+17746368322">(774) 636-8322</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="capability" class="obs">
+  <div class="shell">
+    <div class="sec-head"><h2>Capability</h2><div class="ruler"></div><span class="idx">5 areas</span></div>
+    <div class="caps">
+      <div class="cap reveal">
+        <h3><span class="sym">⌀</span>Quality &amp; process improvement</h3>
+        <p class="note">Finding the cause, then proving it stayed fixed</p>
+        <div class="chips">
+          <span class="chip">Quality Control</span><span class="chip">Quality Assurance</span><span class="chip">QMS</span>
+          <span class="chip">Lean Six Sigma</span><span class="chip">FMEA</span><span class="chip">SPC</span><span class="chip">CAPA</span>
+          <span class="chip">Root Cause Analysis</span><span class="chip">5 Whys</span><span class="chip">8D</span>
+          <span class="chip">Fishbone</span><span class="chip">5S</span><span class="chip">Process Validation</span><span class="chip">Quality Audits</span>
+        </div>
+      </div>
+      <div class="cap reveal">
+        <h3><span class="sym">⏥</span>Manufacturing &amp; operations</h3>
+        <p class="note">Shop-floor work on semi-automatic and CNC lines</p>
+        <div class="chips">
+          <span class="chip">Manufacturing Processes</span><span class="chip">Production Optimization</span><span class="chip">CNC Inspection</span>
+          <span class="chip">GD&amp;T</span><span class="chip">Engineering Drawings</span><span class="chip">Dimensional Inspection</span>
+          <span class="chip">Defect Reduction</span><span class="chip">Waste Reduction</span><span class="chip">First-Pass Yield</span>
+          <span class="chip">Rework Reduction</span><span class="chip">Inventory Management</span><span class="chip">Supply Chain</span>
+        </div>
+      </div>
+      <div class="cap reveal">
+        <h3><span class="sym">▣</span>Systems &amp; compliance</h3>
+        <p class="note">Documents that survive an auditor reading them</p>
+        <div class="chips">
+          <span class="chip">ISO 9001</span><span class="chip">IATF 16949</span><span class="chip">VDA Audits</span>
+          <span class="chip">SOPs</span><span class="chip">Work Instructions</span><span class="chip">Non-Conformance Management</span>
+          <span class="chip">Audit Preparation</span><span class="chip">Corrective Action Reporting</span><span class="chip">Control Plans</span>
+        </div>
+      </div>
+      <div class="cap reveal">
+        <h3><span class="sym">∿</span>Data &amp; tools</h3>
+        <p class="note">Where the pattern in the scrap rate shows up</p>
+        <div class="chips">
+          <span class="chip">Minitab</span><span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">Advanced Excel</span>
+          <span class="chip">Pivot Tables</span><span class="chip">Statistical Analysis</span><span class="chip">Dashboards</span>
+          <span class="chip">SAP BW/4HANA</span><span class="chip">SAP Predictive Analytics</span><span class="chip">Simio</span>
+        </div>
+      </div>
+      <div class="cap reveal">
+        <h3><span class="sym">≡</span>Reporting &amp; collaboration</h3>
+        <p class="note">Getting engineers, operators and managers to one answer</p>
+        <div class="chips">
+          <span class="chip">Technical Reporting</span><span class="chip">Inspection Reports</span><span class="chip">Quality Documentation</span>
+          <span class="chip">KPI Monitoring</span><span class="chip">Cross-Functional Collaboration</span><span class="chip">Problem Solving</span>
+          <span class="chip">Project Coordination</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="obs">
+  <div class="shell">
+    <div class="sec-head"><h2>Experience</h2><div class="ruler"></div><span class="idx">2023 — 2025</span></div>
+    <div class="rail">
+
+      <article class="job reveal">
+        <div class="job-top">
+          <h3>Manufacturing Quality Intern</h3>
+          <span class="co">EnerSys</span>
+          <span class="meta">Jul – Aug 2025 · Springfield, MO</span>
+        </div>
+        <ul>
+          <li>Reviewed, updated and standardized <b>100+ quality control documents</b> — OPLs, QCPs and work instructions — against ISO 9001 and IATF 16949, strengthening the plant-level QMS.</li>
+          <li>Ran process validation audits across semi-automatic and fully automated <b>FANUC robot battery lines</b>, identifying gaps between documented SOPs and actual shop-floor practice.</li>
+          <li>Applied 5 Why, 8D, fishbone and FMEA with process engineers and quality specialists to investigate and close out non-conformances.</li>
+          <li>Took part in the <b>VDA audit</b> process: audit prep, non-conformance identification and corrective action reporting to automotive supplier requirements.</li>
+        </ul>
+      </article>
+
+      <article class="job reveal">
+        <div class="job-top">
+          <h3>Mechanical Engineering Intern</h3>
+          <span class="co">Express Engineering Construction</span>
+          <span class="meta">Jan – Apr 2024 · Vadodara, India</span>
+        </div>
+        <ul>
+          <li>Identified process inefficiencies on a metal parts line and implemented a lean initiative that raised production efficiency <b>6.9%</b> with a measurable cut in material waste.</li>
+          <li>Built a Power BI dashboard tracking sales patterns, demand swings and reorder points, giving the team data-driven inventory decisions and less overstock risk.</li>
+          <li>Analyzed inventory and sales data in Excel to optimize stock levels and improve supply chain throughput, working directly with production managers and quality inspectors.</li>
+          <li>Implemented a <b>CAPA framework</b> for recurring product quality inconsistencies, improving first-pass yield and reducing rework in an ISO 9001:2015 environment.</li>
+        </ul>
+      </article>
+
+      <article class="job reveal">
+        <div class="job-top">
+          <h3>Production &amp; Quality Intern</h3>
+          <span class="co">K.S. Exporters</span>
+          <span class="meta">Jul – Aug 2023 · Vadodara, India</span>
+        </div>
+        <ul>
+          <li>Performed dimensional inspections on machined metal components using engineering drawings and <b>GD&amp;T</b>, verifying tolerances on semi-automatic and CNC lines.</li>
+          <li>Investigated a CNC processing defect on mild steel elbow products, ran root cause analysis and coordinated corrective action with the production manager — the issue stopped recurring.</li>
+          <li>Maintained inspection reports, CAPA documentation and quality records to shop-floor quality system requirements.</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="obs">
+  <div class="shell">
+    <div class="sec-head"><h2>Projects</h2><div class="ruler"></div><span class="idx">2 selected</span></div>
+    <div class="projects">
+      <article class="proj reveal">
+        <p class="when">Nov – Dec 2025</p>
+        <h3>Tariff impact on U.S. equity markets</h3>
+        <p class="where">Capstone · Western New England University</p>
+        <ul>
+          <li>Framed the research question around how Trump-era tariffs moved the U.S. stock market.</li>
+          <li>Pulled structured datasets with SQL to understand the underlying schema.</li>
+          <li>Cleaned and reshaped the data in Excel, using pivot tables to segment it.</li>
+          <li>Built dashboards in SAP Predictive Analytics to compare pre- and post-tariff price movement.</li>
+          <li>Presented the methodology, findings and limitations to faculty and peers.</li>
+        </ul>
+      </article>
+      <article class="proj reveal">
+        <p class="when">Aug – Nov 2023</p>
+        <h3>Portable tiller machine</h3>
+        <p class="where">Government Engineering College, Bharuch</p>
+        <ul>
+          <li>Designed and built a portable tiller to cut manual effort in harvesting and fertilizer spreading.</li>
+          <li>Led a team of five through root cause analysis and mind mapping of the design problem.</li>
+          <li>Specified mild steel as the raw material to keep the build within a tight cost target.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="obs">
+  <div class="shell">
+    <div class="sec-head"><h2>Education</h2><div class="ruler"></div><span class="idx">&amp; certificates</span></div>
+    <div class="edu-grid">
+      <div class="reveal">
+        <div class="deg">
+          <div class="deg-top">
+            <h3>Western New England University</h3>
+            <span class="gpa">GPA 3.97</span>
+            <p class="sub">M.S. Industrial / Engineering Management · Springfield, MA · Aug 2024 – May 2026</p>
+          </div>
+          <p class="course"><span>Coursework —</span> Lean Six Sigma · Statistical Quality Control · Quality Engineering · Project Management · Production &amp; Inventory Models · Enterprise Analytics with SAP · Advanced Manufacturing Engineering Systems · Crisis, Disaster &amp; Risk Management</p>
+        </div>
+        <div class="deg">
+          <div class="deg-top">
+            <h3>Government Engineering College, Bharuch</h3>
+            <span class="gpa">GPA 3.25</span>
+            <p class="sub">B.E. Mechanical Engineering · Gujarat, India · Aug 2020 – Jun 2024</p>
+          </div>
+          <p class="course"><span>Coursework —</span> Manufacturing Processes · Rapid Prototyping · Automation in Manufacturing · Industrial Engineering · Project Management</p>
+        </div>
+      </div>
+      <div class="certs reveal">
+        <h3>Certificates</h3>
+        <ul>
+          <li>Lean Six Sigma Green Belt</li>
+          <li>Lean Foundation: 5S</li>
+          <li>Supply Chain Foundations</li>
+          <li>Logistics Management</li>
+          <li>SQL</li>
+          <li>Power BI</li>
+          <li>Siemens Mobility — Project Manager Job Simulation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="shell">
+    <h2>Got a line that keeps failing inspection?</h2>
+    <p>I'm finishing my master's in May 2026 and looking for quality engineering work in manufacturing. Happy to talk about a role, a defect, or a QMS that needs rebuilding.</p>
+    <div class="contact-rows">
+      <a class="crow" href="mailto:krupeshprajapati971@gmail.com">
+        <span class="k">Email</span><span class="v">krupeshprajapati971@gmail.com</span><span class="arrow">↗</span>
+      </a>
+      <a class="crow" href="tel:+17746368322">
+        <span class="k">Phone</span><span class="v">(774) 636-8322</span><span class="arrow">↗</span>
+      </a>
+      <a class="crow" href="https://www.linkedin.com/in/krupesh16" target="_blank" rel="noopener">
+        <span class="k">LinkedIn</span><span class="v">linkedin.com/in/krupesh16</span><span class="arrow">↗</span>
+      </a>
+      <a class="crow" href="#top">
+        <span class="k">Location</span><span class="v">Springfield, Massachusetts</span><span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="shell foot-in">
+    <span>Krupesh Shaileshbhai Prajapati — Quality Engineer</span>
+    <span>Built as a single HTML file · 2026</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Page-load choreography
+  requestAnimationFrame(function(){ document.body.classList.add('ready'); });
+
+  // Section reveals
+  var obs = document.querySelectorAll('.obs');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    obs.forEach(function(s){ io.observe(s); });
+  } else {
+    obs.forEach(function(s){ s.classList.add('in'); });
+  }
+
+  // Subtle parallax on the portrait frame (pointer only, respects reduced motion)
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var frame = document.querySelector('.frame');
+  if (frame && !reduce && window.matchMedia('(pointer:fine)').matches){
+    var hero = document.querySelector('.hero');
+    hero.addEventListener('mousemove', function(ev){
+      var r = hero.getBoundingClientRect();
+      var x = (ev.clientX - r.left) / r.width - 0.5;
+      var y = (ev.clientY - r.top) / r.height - 0.5;
+      frame.style.transform = 'perspective(900px) rotateY(' + (x * 4).toFixed(2) + 'deg) rotateX(' + (-y * 4).toFixed(2) + 'deg)';
+    });
+    hero.addEventListener('mouseleave', function(){ frame.style.transform = ''; });
+    frame.style.transition = 'transform .5s cubic-bezier(.2,.7,.3,1)';
+  }
+})();
+</script>
+</body>
+</html>
